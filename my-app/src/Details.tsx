@@ -4,11 +4,12 @@ import { User } from "./User";
 
 export const Details = (): ReactElement => {
     const [user, setUser] = useState<User>({
+      avatar_url: defaultAvatar,
       name: "John Doe",
-      username: "@johndoe",
+      login: "johndoe",
       location: "New York, NY", 
       url: "https://github.com/johndoe",
-      repos: "7",
+      public_repos: "7",
       followers: "20",
       following: "80"
     });
@@ -16,13 +17,13 @@ export const Details = (): ReactElement => {
    
     const submit = (event): void => {
       event.preventDefault();
-      // fetch("https://api.github.com/users/" + inputName)
+      fetch("https://api.github.com/users/" + inputName)
 
-      // .then((result) => result.json())
-      // .then((data: User) => {
-      //     console.log(data);
-      //     setUser(data)
-      // });
+      .then((result) => result.json())
+      .then((data: User) => {
+          console.log(data);
+          setUser(data)
+      });
     }
    
    
@@ -46,10 +47,10 @@ export const Details = (): ReactElement => {
         <div id="result">
           <div className="results-wrapper">
             <div className="info">
-              <img src={defaultAvatar} />
+              <img src={user.avatar_url} />
               <div className="names">
                 <h1 className="name">{user.name}</h1>
-                <h1 className="username">{user.username}</h1>
+                <h1 className="username">@{user.login}</h1>
               </div>
             </div>
 
@@ -61,7 +62,7 @@ export const Details = (): ReactElement => {
                   <td>Following</td>
                 </tr>
                 <tr>
-                  <td>{user.repos}</td>
+                  <td>{user.public_repos}</td>
                   <td>{user.followers}</td>
                   <td>{user.following}</td>
                 </tr>

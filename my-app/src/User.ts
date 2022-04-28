@@ -1,9 +1,10 @@
 export interface User {
+    avatar_url: any;
     name: string;
-    username: string;
+    login: string;
     location: string;
     url: string;
-    repos: string;
+    public_repos: string;
     followers: string;
     following: string;
 }

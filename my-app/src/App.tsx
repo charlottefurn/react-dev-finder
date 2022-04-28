@@ -5,13 +5,11 @@ import { Details } from "./Details.tsx";
 
 const App = (): ReactElement => {
   return (
-    <>
-      <h2 className="heading">devfinder</h2>
-
-      <div className="wrapper">
+      <div className="wrapper is-flex is-flex-direction-column is-align-items-center">
+        <h2 className="heading">devfinder</h2>
         <Details />
       </div>
-    </>
+
   );
 };
 

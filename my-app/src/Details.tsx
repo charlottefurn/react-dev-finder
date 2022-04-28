@@ -31,30 +31,28 @@ export const Details = (): ReactElement => {
       <>
         <div className="search-container">
         <form id="form" autoComplete="off">
-          <div className="form-group">
+          <div >
             <input
               type="text"
-              className="form-control"
+              className="input is-info"
               id="search"
               onChange={event => setInputName(event.target.value)}
             />
-            <button onClick={submit}>Search</button>
+            <button className="button is-info" onClick={submit}>Search</button>
           </div>
         </form>
       </div>
 
-        <div className="results-container">
-        <div id="result">
-          <div className="results-wrapper">
-            <div className="info">
+        <div className="results-container section is-small">
+            <div className="is-flex is-flex-direction-row is-justify-content-space-evenly">
               <img src={user.avatar_url} />
-              <div className="names">
+              <div className="is-flex is-flex-direction-column is-justify-content-center">
                 <h1 className="name">{user.name}</h1>
                 <h1 className="username">@{user.login}</h1>
               </div>
             </div>
 
-            <div className="stats">
+            <div className="stats is-flex is-flex-direction-row is-justify-content-center is-align-items-center">
               <table>
                 <tr>
                   <td>Repos</td>
@@ -69,7 +67,7 @@ export const Details = (): ReactElement => {
               </table>
             </div>
 
-            <div className="misc">
+            <div className="is-flex is-flex-direction-column">
               <h1><i className="fas fa-map-marker-alt"></i> {user.location}</h1>
               <h1>
                 <a target="_blank" href="#"><i className="fas fa-link"></i> {user.url}</a>
@@ -77,9 +75,6 @@ export const Details = (): ReactElement => {
             </div>
 
           </div>
-        </div>
-        <div id="overlay"></div>
-      </div>
       </>
     )
 }

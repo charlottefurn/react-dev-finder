@@ -5,12 +5,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: monospace;
 }
 
-.heading {
-  color: white;
-  font-size: 30px;
-  letter-spacing: 2px;
+.title {
   margin: 30px 0;
 }
 
@@ -28,6 +26,7 @@ body {
   color: white;
   text-align: center;
   margin: 5px 0;
+  height: 50px;
 }
 
 .results-container {
@@ -36,10 +35,6 @@ body {
   border-radius: 20px;
   margin: 2% 0;
   padding: 5%;
-}
-
-.container h2 {
-  color: white;
 }
 
 h1 {
@@ -86,10 +81,14 @@ img {
   margin: 20px 0;
 } 
 
-.icons {
+.contact .icons {
   font-size: 30px;
 }
 
-.icons i:hover {
-  color: white;
+.icons h1 {
+  font-size: 18px;
+}
+
+.icons a {
+  color: rgb(180, 176, 176);
 }

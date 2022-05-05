@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
 import defaultAvatar from "../src/avatar.jpg";
+import { FollowersModal } from "./FollowersModal.tsx";
 import { User } from "./User";
 
 export const Details = (): ReactElement => {
@@ -11,9 +12,12 @@ export const Details = (): ReactElement => {
       url: "https://github.com/johndoe",
       public_repos: "7",
       followers: "20",
-      following: "80"
+      following: "80",
+      twitter_username: "johndoe",
+      company: null
     });
     const [inputName, setInputName] = useState<string>("");
+    const [clicked, setClick] = useState<boolean>(false)
    
     const submit = (event): void => {
       event.preventDefault();
@@ -25,13 +29,11 @@ export const Details = (): ReactElement => {
           setUser(data)
       });
     }
-   
-   
+
     return (
       <>
         <div className="search-container">
         <form id="form" autoComplete="off">
-          <div >
             <input
               type="text"
               className="input is-info"
@@ -39,7 +41,6 @@ export const Details = (): ReactElement => {
               onChange={event => setInputName(event.target.value)}
             />
             <button className="button is-info" onClick={submit}>Search</button>
-          </div>
         </form>
       </div>
 
@@ -54,6 +55,7 @@ export const Details = (): ReactElement => {
 
             <div className="stats is-flex is-flex-direction-row is-justify-content-center is-align-items-center">
               <table>
+                <tbody>
                 <tr>
                   <td>Repos</td>
                   <td>Followers</td>
@@ -64,13 +66,20 @@ export const Details = (): ReactElement => {
                   <td>{user.followers}</td>
                   <td>{user.following}</td>
                 </tr>
+                </tbody>
               </table>
             </div>
 
-            <div className="is-flex is-flex-direction-column">
-              <h1><i className="fas fa-map-marker-alt"></i> {user.location}</h1>
+            <div className="icons is-flex is-flex-direction-column">
+              <h1><i className="fas fa-map-marker-alt"></i> {user.location === null ? "Not available" : user.location}</h1>
               <h1>
-                <a target="_blank" href="#"><i className="fas fa-link"></i> {user.url}</a>
+                <a target="_blank" href={user.url}><i className="fas fa-link"></i> Go to GitHub!</a>
+              </h1>
+              <h1>
+              <i className="fab fa-twitter"></i> {user.twitter_username === null ? "Not available" : user.twitter_username}
+              </h1>
+              <h1>
+              <i className="fas fa-building"></i> {user.company === null ? "Not available" : user.company}
               </h1>
             </div>
 

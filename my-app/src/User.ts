@@ -7,4 +7,6 @@ export interface User {
     public_repos: string;
     followers: string;
     following: string;
+    twitter_username: string;
+    company: string;
 }

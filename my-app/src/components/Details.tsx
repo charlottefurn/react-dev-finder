@@ -1,7 +1,6 @@
 import { ReactElement, useState } from "react";
-import defaultAvatar from "../src/avatar.jpg";
-import { FollowersModal } from "./FollowersModal.tsx";
-import { User } from "./User";
+import defaultAvatar from "../../src/avatar.jpg";
+import { User } from "../interfaces/User";
 
 export const Details = (): ReactElement => {
     const [user, setUser] = useState<User>({
@@ -38,6 +37,7 @@ export const Details = (): ReactElement => {
               type="text"
               className="input is-info"
               id="search"
+              placeholder="Search GitHub username..."
               onChange={event => setInputName(event.target.value)}
             />
             <button className="button is-info" onClick={submit}>Search</button>

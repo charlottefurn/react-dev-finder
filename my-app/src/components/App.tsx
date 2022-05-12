@@ -1,5 +1,5 @@
-import "./App.css";
-import { ReactElement, useState } from "react";
+import "../styles/App.css";
+import { ReactElement } from "react";
 import { Details } from "./Details.tsx";
 import { Contact } from "./Contact.tsx";
 

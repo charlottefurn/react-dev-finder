@@ -5,7 +5,7 @@ Devfinder is a project inspired by [Frontend Mentor](https://www.frontendmentor.
 This project uses the GitHub Users api to fetch and display data.
 
 ## Built using  
-* HTML / CSS 
+* HTML / SCSS 
 * TypeScript
 * React
 * Bulma
